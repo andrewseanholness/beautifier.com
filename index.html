@@ -3,7 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautifier | Montreal Mobile Hairstylist</title>
+    <title>Montreal Mobile Hair Stylist | Beautifier | In Home Senior Hair Stylist</title>
+    
+    <meta name="description" content="Looking for an in home hair stylist for seniors in Montreal? Beautifier by Tracy offers professional at-home haircuts, blowouts, and specialized senior hair stylist services across Montreal and the West Island.">
+    <meta name="keywords" content="Montreal mobile hair stylist, in home hair stylist for seniors montreal, senior hair stylist west island, in-home hairdresser Montreal, at-home haircut Montreal, traveling hairstylist, limited mobility hair salon Montreal, senior haircut Montreal, Tracy Baron hairstylist, senior hair stylist montreal, in home senior hair stylist">
+
+    <meta property="og:title" content="Montreal Mobile Hair Stylist | Beautifier | In Home Senior Hair Stylist">
+    <meta property="og:description" content="Looking for an in home hair stylist for seniors in Montreal? Beautifier by Tracy offers professional at-home haircuts, blowouts, and specialized senior hair stylist services across Montreal and the West Island.">
+    <meta property="og:image" content="https://beautifiermontreal.ca/logo.jpg">
+    <meta property="og:url" content="https://beautifiermontreal.ca/">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Montreal Mobile Hair Stylist | Beautifier | In Home Senior Hair Stylist">
+    <meta name="twitter:description" content="Looking for an in home hair stylist for seniors in Montreal? Beautifier by Tracy offers professional at-home haircuts, blowouts, and specialized senior hair stylist services across Montreal and the West Island.">
+    <meta name="twitter:image" content="https://beautifiermontreal.ca/logo.jpg">
+
+    <!-- Schema.org markup for local SEO & AI Search Engines (GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["HealthAndBeautyBusiness", "HairSalon"],
+          "name": "Beautifier Mobile Hair Stylist",
+          "@id": "https://beautifiermontreal.ca/#organization",
+          "url": "https://beautifiermontreal.ca/",
+          "telephone": "514-773-7814",
+          "email": "beautifierhair@gmail.com",
+          "image": "https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png",
+          "description": "Montreal's premier mobile and in-home hairstylist. Tracy Baron offers at-home haircuts, color, blowouts, and compassionate senior hair care as an in home hair stylist for seniors in Montreal and the West Island.",
+          "knowsAbout": ["Mobile Hairdressing", "In-home Haircuts", "Senior Hair Care", "Limited Mobility Hair Salon Services", "Montreal Hair Stylist", "in home hair stylist for seniors montreal", "senior hair stylist west island"],
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Montreal",
+              "sameAs": "https://en.wikipedia.org/wiki/Montreal"
+            },
+            {
+              "@type": "City",
+              "name": "West Island",
+              "sameAs": "https://en.wikipedia.org/wiki/West_Island"
+            }
+          ],
+          "priceRange": "$$",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=100071332268708",
+            "https://www.instagram.com/tracyybaron/"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Mobile Hair Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "In-Home Haircut"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Mobile Hair Styling and Blowout"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Senior and Limited Mobility Hair Care"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who provides in-home haircuts in Montreal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Beautifier, run by Tracy Baron, provides professional in-home and mobile haircuts across the Greater Montreal Area and the West Island. She is a specialized in home hair stylist for seniors montreal and those with limited mobility."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a mobile hairstylist?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A mobile hairstylist travels to your home, office, or hospital to provide salon-quality hair services like cuts, color, and blowouts. Beautifier Montreal offers this convenient at-home service."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,7 +131,8 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="http://s1063125683.online-home.ca/icon.png">
+    <link rel="icon" type="image/png" href="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png">
+    <link rel="apple-touch-icon" href="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png">
     
     <style>
         .gradient-text {
@@ -78,6 +179,22 @@
         .price-list-item > span {
             background-color: white;
         }
+        
+        #lightbox {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        #lightbox.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        #lightbox img {
+            transition: transform 0.3s ease;
+            transform: scale(0.95);
+        }
+        #lightbox.open img {
+            transform: scale(1);
+        }
     </style>
 </head>
 <body class="bg-beautifier-light text-gray-800 font-sans antialiased overflow-x-hidden relative">
@@ -87,22 +204,28 @@
     <div class="shape-blob w-[400px] h-[400px] bottom-[-100px] right-[10%] hidden md:block" style="animation-delay: -10s;"></div>
 
     <nav class="relative z-50 w-full bg-white/80 backdrop-blur-md sticky top-0 border-b border-pink-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
             <!-- Logo area -->
             <a href="#" class="flex items-center gap-3">
-                <img src="http://s1063125683.online-home.ca/icon.png" alt="Beautifier Logo Icon" class="h-12 object-contain">
+                <img src="https://beautifiermontreal.ca/Beautifier%20transparent%20icon.png" alt="Beautifier Logo Icon" class="h-12 object-contain">
             </a>
             
+            <!-- Mobile Centered Title -->
+            <span class="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-serif font-bold text-xl tracking-wider text-gray-900 uppercase pointer-events-none">
+                Beautifier
+            </span>
+
             <!-- Desktop Links -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#services" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Services</a>
                 <a href="#prices" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Prices</a>
+                <a href="#reviews" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Reviews</a>
                 <a href="#gallery" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Gallery</a>
                 <a href="#contact" class="bg-gradient-brand text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-beautifier-pink/30 transition-all transform hover:-translate-y-0.5">Book Now</a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-800 focus:outline-none p-2" id="mobile-menu-btn">
+            <button class="md:hidden text-gray-800 focus:outline-none p-2" id="mobile-menu-btn" aria-label="Menu">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
@@ -112,6 +235,7 @@
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="#services" class="text-gray-700 font-medium py-2 border-b border-gray-50">Services</a>
                 <a href="#prices" class="text-gray-700 font-medium py-2 border-b border-gray-50">Prices</a>
+                <a href="#reviews" class="text-gray-700 font-medium py-2 border-b border-gray-50">Reviews</a>
                 <a href="#gallery" class="text-gray-700 font-medium py-2 border-b border-gray-50">Gallery</a>
                 <a href="#contact" class="text-beautifier-purple font-bold py-2">Book Now</a>
             </div>
@@ -121,14 +245,14 @@
     <header class="relative z-10 max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-20 flex flex-col lg:flex-row items-center gap-12">
         
         <!-- Text Content -->
-        <div class="w-full lg:w-1/2 text-center lg:text-left">
-            <p class="font-script text-4xl md:text-5xl text-beautifier-pink mb-4 -rotate-2 inline-block">Montreal's Mobile Hairstylist</p>
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 tracking-tight mb-6 leading-[1.1]">
+        <div class="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
+            <h1 class="font-script text-4xl md:text-5xl text-beautifier-pink mb-4 -rotate-2 inline-block">Montreal's Mobile Hair Stylist</h1>
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 tracking-tight mb-6 leading-[1.1]">
                 Beautiful Hair, <br>
                 <span class="gradient-text">Delivered to You.</span>
-            </h1>
+            </h2>
             <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-                Experience luxury salon services in the comfort of your home. Specializing in standard styling, compassionate care for limited mobility, and bringing out your best look.
+                Hi, I'm Tracy. As a dedicated mobile and in-home hairstylist, I bring luxury salon services directly to the comfort of your home. Specializing in standard styling and serving as a trusted in home hair stylist for seniors in Montreal and the West Island, I bring out your best look anywhere.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -148,22 +272,11 @@
         </div>
 
         <!-- Featured Image Area -->
-        <div class="w-full lg:w-1/2 relative flex justify-center mt-10 lg:mt-0">
+        <div class="w-full lg:w-1/2 relative flex flex-col items-center justify-center order-1 lg:order-2 mb-6 lg:mb-0 lg:mt-0">
             <!-- Decorative circle behind image -->
             <div class="absolute inset-0 bg-gradient-to-tr from-beautifier-purple/20 to-beautifier-pink/20 rounded-full blur-2xl transform scale-90 -z-10"></div>
             
-            <img src="http://s1063125683.online-home.ca/Beautifier%20transparent%20logo.png" alt="Beautifier Logo" class="relative z-10 w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl rounded-3xl">
-            
-            <!-- Floating badge -->
-            <div class="absolute bottom-4 -left-4 lg:left-0 z-20 bg-white p-4 rounded-2xl shadow-xl border border-pink-50 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
-                <div class="bg-pink-100 p-3 rounded-full">
-                    <i class="fas fa-gift text-2xl text-beautifier-pink"></i>
-                </div>
-                <div>
-                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Available Now</p>
-                    <p class="text-sm font-bold text-gray-900">Physical Gift Cards</p>
-                </div>
-            </div>
+            <img src="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png" alt="Beautifier Logo" class="relative z-30 w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl rounded-3xl">
         </div>
     </header>
 
@@ -180,8 +293,8 @@
                     <div class="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-beautifier-pink group-hover:text-white transition-colors text-beautifier-pink text-2xl">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Comfort of Home</h3>
-                    <p class="text-gray-600 leading-relaxed">Relax in your own space. I bring professional tools and salon-quality products directly to your door.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">In-Home Haircuts</h3>
+                    <p class="text-gray-600 leading-relaxed">Relax in your own space. I bring professional tools and salon-quality products directly to your door for the ultimate at-home salon experience.</p>
                 </div>
                 
                 <!-- Card 2 -->
@@ -189,8 +302,8 @@
                     <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-beautifier-purple group-hover:text-white transition-colors text-beautifier-purple text-2xl">
                         <i class="fas fa-wheelchair"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Limited Mobility Support</h3>
-                    <p class="text-gray-600 leading-relaxed">Specialized, compassionate setups ensuring a safe, comfortable, and dignified styling session for all clients.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Seniors & Limited Mobility</h3>
+                    <p class="text-gray-600 leading-relaxed">Specialized setups ensuring a safe, comfortable, and dignified styling session. I am proud to be a highly recommended senior hair stylist for the West Island and Greater Montreal, catering to all accessibility needs.</p>
                 </div>
 
                 <!-- Card 3 -->
@@ -217,7 +330,7 @@
                 
                 <!-- Left side: The original price list image for reference or aesthetic -->
                 <div class="w-full md:w-5/12 bg-beautifier-light p-8 flex flex-col items-center justify-center border-r border-gray-100">
-                    <img src="http://s1063125683.online-home.ca/price%20list.jpg" alt="Beautifier Original Price List" class="w-full max-w-sm rounded-xl shadow-md border-2 border-white">
+                    <img src="https://beautifiermontreal.ca/price%20list.jpg" alt="Beautifier Original Price List" class="w-full max-w-sm rounded-xl shadow-md border-2 border-white">
                     <p class="mt-6 text-sm text-gray-500 text-center italic">Distance fee of $10 - $30 will be applied depending on distance.</p>
                 </div>
 
@@ -278,80 +391,187 @@
         </div>
     </section>
 
+    <!-- Client Reviews Section for SEO and Trust -->
+    <section id="reviews" class="relative z-10 py-24 bg-beautifier-light/50 border-y border-pink-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-beautifier-purple font-bold tracking-wider uppercase text-sm">Testimonials</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Client Love</h2>
+                <div class="w-24 h-1 bg-gradient-brand mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-sm gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic flex-grow mb-6 leading-relaxed">"I contacted Tracy to go to the hospital to give my mom a haircut. She responded quickly and we organized a date and time and literally made my mom's week. Thank you for your services! Would recommend Tracy to others."</p>
+                    <div class="font-bold text-gray-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-beautifier-pink font-bold text-xs">MB</div>
+                        Maya Bialy
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-sm gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic flex-grow mb-6 leading-relaxed">"Tracy is realy good at listening and understanding how you want your hair done and a really good hairdresser, also a really nice person."</p>
+                    <div class="font-bold text-gray-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-beautifier-purple font-bold text-xs">LZ</div>
+                        Lisa Zakaib
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-sm gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic flex-grow mb-6 leading-relaxed">"My mom and dad are 93 and 91 respectively and Tracy was able to go their condo and give them both a haircut and my dad a shave. They both love their cuts! I highly recommend Tracy!!"</p>
+                    <div class="font-bold text-gray-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-beautifier-pink font-bold text-xs">AK</div>
+                        Arpy Khatcherian
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-sm gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic flex-grow mb-6 leading-relaxed">"Tracy is incredible! I recommend her services very highly, she does a beautiful job!"</p>
+                    <div class="font-bold text-gray-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-beautifier-purple font-bold text-xs">CC</div>
+                        Cheryl Campeau
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-sm gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic flex-grow mb-6 leading-relaxed">"Tracy was amazing with my mom. Best haircut that she’s had in a very long time! Thank you Tracy"</p>
+                    <div class="font-bold text-gray-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-beautifier-pink font-bold text-xs">SD</div>
+                        Suzanne Dumais
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-sm gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="text-gray-600 italic flex-grow mb-6 leading-relaxed">
+                        <p>"Tracy is an amazing hairdresser! My kids and I absolutely love her! She is always kind, patient and she truly listens to what my girls and I want! I highly recommend her! It is so much more comfortable for me to get my hair done at home Thank you so much Tracy!"</p>
+                        <p class="text-xs text-gray-400 not-italic mt-3 font-medium">Good with children • Great haircuts • Affordable haircuts • Amazing results • Fantastic haircuts • Good for curly hair</p>
+                    </div>
+                    <div class="font-bold text-gray-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-beautifier-purple font-bold text-xs">HC</div>
+                        Wendy Gampel-Veliz
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="gallery" class="relative z-10 py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div>
                     <span class="text-beautifier-purple font-bold tracking-wider uppercase text-sm">Our Work</span>
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-2">Portfolio</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-2">Gallery</h2>
                 </div>
-                <a href="https://instagram.com" target="_blank" class="flex items-center gap-2 text-beautifier-pink font-semibold hover:text-beautifier-purple transition-colors">
+                <a href="https://www.instagram.com/tracyybaron/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-beautifier-pink font-semibold hover:text-beautifier-purple transition-colors">
                     <i class="fab fa-instagram text-xl"></i> Follow on Instagram
                 </a>
             </div>
 
-            <!-- Gallery Grid (Placeholders ready for your images) -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6" id="gallery-grid">
                 <!-- Gallery Item 1 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
-                    <img src="http://s1063125683.online-home.ca/client%20collage.jpg" alt="Client Collage" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/client%20collage.jpg" alt="Client Collage" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Happy Clients</p>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 2 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
-                    <img src="http://s1063125683.online-home.ca/cut%20and%20blow.jpg" alt="Cut and Blowdry" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/cut%20and%20blow.jpg" alt="Cut and Blowdry" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Cut & Blowdry</p>
                     </div>
                 </div>
 
                 <!-- Gallery Item 3 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
-                    <img src="http://s1063125683.online-home.ca/hair%20styling.jpg" alt="Hair Styling" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/hair%20styling.jpg" alt="Hair Styling" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Styling</p>
                     </div>
                 </div>
 
                 <!-- Gallery Item 4 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
-                    <img src="http://s1063125683.online-home.ca/hair%20styling%202.jpg" alt="Hair Styling 2" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/hair%20styling%202.jpg" alt="Hair Styling 2" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Elegant Styling</p>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 5 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm md:hidden lg:block">
-                    <img src="http://s1063125683.online-home.ca/hair%20styling%203.jpg" alt="Hair Styling 3" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/hair%20styling%203.jpg" alt="Hair Styling 3" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Beautiful Finish</p>
                     </div>
                 </div>
 
                 <!-- Gallery Item 6 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm md:hidden lg:block">
-                    <img src="http://s1063125683.online-home.ca/kids%20cut.jpg" alt="Kids Cut" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/kids%20cut.jpg" alt="Kids Cut" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Kids Cut</p>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 7 -->
-                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm md:hidden lg:block">
-                    <img src="http://s1063125683.online-home.ca/limited%20mobility%20cut.jpg" alt="Limited Mobility Service" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/limited%20mobility%20cut.jpg" alt="Limited Mobility Service" class="w-full h-full object-cover transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p class="text-white font-medium">Accessible Care</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <p class="text-gray-500 mb-2">Want to see more of my work?</p>
-                <p class="text-sm italic text-gray-400">Provide image filenames and locations to update this gallery.</p>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/cutblow.jpg" alt="Cut & Blow" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Cut & Blow</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/halfuphalfdown.jpg" alt="Half Up Half Down Styling" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Half-Up Styling</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img src="https://beautifiermontreal.ca/halfuphalfdown2.jpg" alt="Half Up Half Down Styling 2" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Elegant Updo</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -381,11 +601,21 @@
 
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/5">
-                            <i class="fas fa-map-marker-alt text-beautifier-purple text-xl"></i>
+                            <i class="fas fa-envelope text-beautifier-purple text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Email</h4>
+                            <a href="mailto:beautifierhair@gmail.com" class="text-xl font-semibold hover:text-beautifier-pink transition-colors break-all">beautifierhair@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/5">
+                            <i class="fas fa-map-marker-alt text-beautifier-pink text-xl"></i>
                         </div>
                         <div>
                             <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Service Area</h4>
-                            <p class="text-xl">Greater Montreal Area</p>
+                            <p class="text-xl">Greater Montreal & West Island</p>
                             <p class="text-sm text-gray-400 mt-1">Travel fee may apply based on distance.</p>
                         </div>
                     </div>
@@ -410,43 +640,55 @@
                 
                 <h3 class="text-2xl font-bold mb-6 text-gray-900">Request an Appointment</h3>
                 
-                <form id="bookingForm" class="space-y-5" onsubmit="event.preventDefault(); alert('In a real app, this would send your message!');">
+                <form action="https://api.web3forms.com/submit" method="POST" id="bookingForm" class="space-y-5">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="820b5903-be78-480c-bb6b-ddf17c87ed3e">
+                    <!-- Email Subject -->
+                    <input type="hidden" name="subject" value="New Appointment Request for Beautifier">
+                    <!-- Spam Prevention Honeypot -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                     <div class="grid grid-cols-2 gap-5">
                         <div class="space-y-1">
-                            <label class="text-sm font-semibold text-gray-700">First Name</label>
-                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                            <label for="firstName" class="text-sm font-semibold text-gray-700">First Name</label>
+                            <input type="text" id="firstName" name="First Name" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
                         </div>
                         <div class="space-y-1">
-                            <label class="text-sm font-semibold text-gray-700">Last Name</label>
-                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                            <label for="lastName" class="text-sm font-semibold text-gray-700">Last Name</label>
+                            <input type="text" id="lastName" name="Last Name" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
                         </div>
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-sm font-semibold text-gray-700">Phone Number</label>
-                        <input type="tel" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                        <label for="email" class="text-sm font-semibold text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="Email" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="phone" class="text-sm font-semibold text-gray-700">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone Number" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
                     </div>
                     
                     <div class="space-y-1">
-                        <label class="text-sm font-semibold text-gray-700">Address / Postal Code (For distance check)</label>
-                        <input type="text" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                        <label for="address" class="text-sm font-semibold text-gray-700">Address / Postal Code (For distance check)</label>
+                        <input type="text" id="address" name="Address" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-sm font-semibold text-gray-700">Service Needed</label>
-                        <select class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all appearance-none cursor-pointer">
-                            <option>Hair cut & Blowdry</option>
-                            <option>Color, Cut & Blowdry</option>
-                            <option>Men's Cut</option>
-                            <option>Permanent</option>
-                            <option>Inquire about Gift Card</option>
-                            <option>Other / Consultation</option>
+                        <label for="service" class="text-sm font-semibold text-gray-700">Service Needed</label>
+                        <select id="service" name="Service Needed" class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all appearance-none cursor-pointer">
+                            <option value="Hair cut & Blowdry">Hair cut & Blowdry</option>
+                            <option value="Color, Cut & Blowdry">Color, Cut & Blowdry</option>
+                            <option value="Men's Cut">Men's Cut</option>
+                            <option value="Permanent">Permanent</option>
+                            <option value="Inquire about Gift Card">Inquire about Gift Card</option>
+                            <option value="Other / Consultation">Other / Consultation</option>
                         </select>
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-sm font-semibold text-gray-700">Message / Accessibility Needs</label>
-                        <textarea rows="4" class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all resize-none placeholder-gray-400" placeholder="Let me know if you have specific limited mobility requirements so I can prepare the best setup for you."></textarea>
+                        <label for="message" class="text-sm font-semibold text-gray-700">Message / Accessibility Needs</label>
+                        <textarea id="message" name="Message" rows="4" class="w-full h-48 md:h-auto bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all resize-none placeholder-gray-400" placeholder="Let me know if you have specific limited mobility requirements so I can prepare the best setup for you."></textarea>
                     </div>
 
                     <button type="submit" class="w-full bg-beautifier-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition-colors shadow-lg mt-2">
@@ -462,17 +704,17 @@
             
             <div>
                 <a href="#" class="inline-flex items-center gap-2 mb-4">
-                    <img src="http://s1063125683.online-home.ca/icon.png" alt="Beautifier Logo Icon" class="h-8 w-8 object-contain rounded-full">
+                    <img src="https://beautifiermontreal.ca/Beautifier%20transparent%20icon.png" alt="Beautifier Logo Icon" class="h-8 w-8 object-contain rounded-full">
                     <span class="font-serif text-xl font-bold tracking-widest text-white uppercase">Beautifier</span>
                 </a>
                 <p class="text-sm text-gray-500 max-w-xs mx-auto md:mx-0">Montreal's premier mobile hairstylist, bringing the salon to your sanctuary.</p>
             </div>
 
             <div class="flex justify-center gap-6">
-                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-beautifier-pink hover:text-white transition-all text-gray-300">
+                <a href="https://www.instagram.com/tracyybaron/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-beautifier-pink hover:text-white transition-all text-gray-300">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-beautifier-purple hover:text-white transition-all text-gray-300">
+                <a href="https://www.facebook.com/profile.php?id=100071332268708" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-beautifier-purple hover:text-white transition-all text-gray-300">
                     <i class="fab fa-facebook-f"></i>
                 </a>
             </div>
@@ -480,9 +722,24 @@
             <div class="md:text-right text-sm">
                 <p>&copy; <span id="year"></span> Beautifier. All rights reserved.</p>
                 <p class="mt-1">Designed for Mobile Haircare.</p>
+                <p class="mt-2 text-xs text-gray-500">Website Designed by <a href="https://moonmediacreative.ca" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline decoration-gray-700 hover:decoration-white underline-offset-2">MoonMedia Creative</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 flex flex-col items-center justify-center opacity-0 invisible transition-all duration-300" onclick="closeLightbox(event)">
+        <!-- Close button -->
+        <button onclick="closeLightbox(event, true)" class="absolute top-6 right-6 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full w-12 h-12 flex items-center justify-center transition-colors focus:outline-none z-10">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        
+        <!-- Image container -->
+        <div class="relative max-w-5xl w-full max-h-screen p-4 md:p-10 flex flex-col items-center justify-center" onclick="event.stopPropagation();">
+            <img id="lightbox-img" src="" alt="Full size gallery image" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-white/80 mt-4 font-medium text-lg text-center h-8"></p>
+        </div>
+    </div>
 
     <script>
         // Set current year in footer
@@ -501,6 +758,40 @@
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
             });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(imageSrc, altText) {
+            lightboxImg.src = imageSrc;
+            lightboxCaption.textContent = altText;
+            lightbox.classList.remove('invisible', 'opacity-0');
+            lightbox.classList.add('open');
+            // Prevent scrolling on body when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event, forceClose = false) {
+            // Close if clicking outside the image (on the backdrop) or explicitly clicking close
+            if (forceClose || event.target === lightbox) {
+                lightbox.classList.remove('open');
+                setTimeout(() => {
+                    lightbox.classList.add('invisible', 'opacity-0');
+                    lightboxImg.src = ''; // Clear image source after fade out
+                }, 300); // Matches the CSS transition duration
+                // Restore body scrolling
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close lightbox on Escape key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+                closeLightbox(event, true);
+            }
         });
     </script>
 </body>
