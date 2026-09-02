@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautifier | Montreal Mobile Hairstylist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'beautifier-black': '#000000',
+                        'beautifier-pink': '#ff5a8e',
+                        'beautifier-purple': '#8e24aa',
+                        'beautifier-light': '#fff5f7', // Slightly warmer light background
+                        'beautifier-dark': '#1a0a1f',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                        'script': ['Great Vibes', 'cursive'],
+                    },
+                    backgroundImage: {
+                        'gradient-brand': 'linear-gradient(to right, #8e24aa, #ff5a8e)',
+                        'gradient-brand-vertical': 'linear-gradient(to bottom, #8e24aa, #ff5a8e)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="http://s1063125683.online-home.ca/icon.png">
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #8e24aa, #ff5a8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .shape-blob {
+            position: absolute;
+            background: linear-gradient(to right, rgba(142, 36, 170, 0.15), rgba(255, 90, 142, 0.15));
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+            animation: float 15s infinite ease-in-out alternate;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .price-list-item {
+            position: relative;
+        }
+        .price-list-item::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 90, 142, 0.3) 50%, transparent 50%);
+            background-size: 10px 1px;
+            background-repeat: repeat-x;
+            z-index: -1;
+        }
+        .price-list-item > span {
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-beautifier-light text-gray-800 font-sans antialiased overflow-x-hidden relative">
+
+    <div class="shape-blob w-[300px] h-[300px] md:w-[600px] md:h-[600px] top-[-100px] right-[-100px] md:right-[-200px]"></div>
+    <div class="shape-blob w-[250px] h-[250px] md:w-[500px] md:h-[500px] top-[40%] left-[-150px]" style="animation-delay: -5s; background: linear-gradient(to right, rgba(255, 90, 142, 0.15), rgba(142, 36, 170, 0.1));"></div>
+    <div class="shape-blob w-[400px] h-[400px] bottom-[-100px] right-[10%] hidden md:block" style="animation-delay: -10s;"></div>
+
+    <nav class="relative z-50 w-full bg-white/80 backdrop-blur-md sticky top-0 border-b border-pink-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo area -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="http://s1063125683.online-home.ca/icon.png" alt="Beautifier Logo Icon" class="h-12 object-contain">
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Services</a>
+                <a href="#prices" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Prices</a>
+                <a href="#gallery" class="text-gray-700 hover:text-beautifier-pink font-medium transition-colors">Gallery</a>
+                <a href="#contact" class="bg-gradient-brand text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-beautifier-pink/30 transition-all transform hover:-translate-y-0.5">Book Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-800 focus:outline-none p-2" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div class="md:hidden hidden bg-white border-b border-pink-100 absolute w-full left-0 top-full shadow-lg" id="mobile-menu">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#services" class="text-gray-700 font-medium py-2 border-b border-gray-50">Services</a>
+                <a href="#prices" class="text-gray-700 font-medium py-2 border-b border-gray-50">Prices</a>
+                <a href="#gallery" class="text-gray-700 font-medium py-2 border-b border-gray-50">Gallery</a>
+                <a href="#contact" class="text-beautifier-purple font-bold py-2">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative z-10 max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-20 flex flex-col lg:flex-row items-center gap-12">
+        
+        <!-- Text Content -->
+        <div class="w-full lg:w-1/2 text-center lg:text-left">
+            <p class="font-script text-4xl md:text-5xl text-beautifier-pink mb-4 -rotate-2 inline-block">Montreal's Mobile Hairstylist</p>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 tracking-tight mb-6 leading-[1.1]">
+                Beautiful Hair, <br>
+                <span class="gradient-text">Delivered to You.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                Experience luxury salon services in the comfort of your home. Specializing in standard styling, compassionate care for limited mobility, and bringing out your best look.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                <a href="#contact" class="w-full sm:w-auto bg-beautifier-purple text-white px-8 py-4 rounded-full font-bold shadow-[0_4px_15px_rgba(142,36,170,0.3)] hover:bg-beautifier-pink hover:shadow-[0_4px_20px_rgba(255,90,142,0.4)] transition-all text-center">
+                    Book an Appointment
+                </a>
+                <a href="#prices" class="w-full sm:w-auto bg-white border border-gray-200 text-gray-700 px-8 py-4 rounded-full font-bold hover:border-beautifier-pink hover:text-beautifier-pink transition-colors text-center shadow-sm">
+                    View Price List
+                </a>
+            </div>
+            
+            <div class="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 font-medium">
+                <span class="flex items-center gap-2"><i class="fas fa-car-side text-beautifier-pink"></i> We travel to you</span>
+                <span class="flex items-center gap-2"><i class="fas fa-wheelchair text-beautifier-purple"></i> Fully Accessible</span>
+                <span class="flex items-center gap-2"><i class="fas fa-gift text-beautifier-pink"></i> Physical Gift Cards Available</span>
+            </div>
+        </div>
+
+        <!-- Featured Image Area -->
+        <div class="w-full lg:w-1/2 relative flex justify-center mt-10 lg:mt-0">
+            <!-- Decorative circle behind image -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-beautifier-purple/20 to-beautifier-pink/20 rounded-full blur-2xl transform scale-90 -z-10"></div>
+            
+            <img src="http://s1063125683.online-home.ca/Beautifier%20transparent%20logo.png" alt="Beautifier Logo" class="relative z-10 w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl rounded-3xl">
+            
+            <!-- Floating badge -->
+            <div class="absolute bottom-4 -left-4 lg:left-0 z-20 bg-white p-4 rounded-2xl shadow-xl border border-pink-50 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                <div class="bg-pink-100 p-3 rounded-full">
+                    <i class="fas fa-gift text-2xl text-beautifier-pink"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Available Now</p>
+                    <p class="text-sm font-bold text-gray-900">Physical Gift Cards</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="relative z-10 py-16 bg-white/50 border-y border-pink-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Mobile?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Elevating your hair care experience by removing the hassle of travel and salon wait times.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md hover:border-pink-100 transition-all group">
+                    <div class="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-beautifier-pink group-hover:text-white transition-colors text-beautifier-pink text-2xl">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Comfort of Home</h3>
+                    <p class="text-gray-600 leading-relaxed">Relax in your own space. I bring professional tools and salon-quality products directly to your door.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md hover:border-purple-100 transition-all group">
+                    <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-beautifier-purple group-hover:text-white transition-colors text-beautifier-purple text-2xl">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Limited Mobility Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Specialized, compassionate setups ensuring a safe, comfortable, and dignified styling session for all clients.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md hover:border-pink-100 transition-all group">
+                    <div class="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-beautifier-pink group-hover:text-white transition-colors text-beautifier-pink text-2xl">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">The Perfect Gift</h3>
+                    <p class="text-gray-600 leading-relaxed">Treat a loved one, a new mom, or anyone needing pampering with our beautifully packaged physical gift cards, delivered by hand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prices" class="relative z-10 py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-beautifier-purple font-bold tracking-wider uppercase text-sm">Investment in You</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Service Menu</h2>
+                <div class="w-24 h-1 bg-gradient-brand mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-pink-50 flex flex-col md:flex-row">
+                
+                <!-- Left side: The original price list image for reference or aesthetic -->
+                <div class="w-full md:w-5/12 bg-beautifier-light p-8 flex flex-col items-center justify-center border-r border-gray-100">
+                    <img src="http://s1063125683.online-home.ca/price%20list.jpg" alt="Beautifier Original Price List" class="w-full max-w-sm rounded-xl shadow-md border-2 border-white">
+                    <p class="mt-6 text-sm text-gray-500 text-center italic">Distance fee of $10 - $30 will be applied depending on distance.</p>
+                </div>
+
+                <!-- Right side: HTML rendered price list for better readability and SEO -->
+                <div class="w-full md:w-7/12 p-8 lg:p-12">
+                    <h3 class="font-script text-4xl text-center md:text-left mb-8 text-gray-800">Price list</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Price Items -->
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Hair cut</span>
+                            <span class="text-gray-900 pl-2 text-lg">$30</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Blowdry & Styling</span>
+                            <span class="text-gray-900 pl-2 text-lg">$30+</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Cut & blowdry</span>
+                            <span class="text-gray-900 pl-2 text-lg">$55</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Color</span>
+                            <span class="text-gray-900 pl-2 text-lg">$60+</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Color, cut and blowdry</span>
+                            <span class="text-gray-900 pl-2 text-lg">$115+</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Treatment</span>
+                            <span class="text-gray-900 pl-2 text-lg">$20+</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Permanent</span>
+                            <span class="text-gray-900 pl-2 text-lg">$100</span>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-4 mb-2 pl-4">(cut & blowdry included)</p>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium pt-4">
+                            <span class="text-gray-800 pr-2 text-lg">Men's cut</span>
+                            <span class="text-gray-900 pl-2 text-lg">$30</span>
+                        </div>
+                        
+                        <div class="price-list-item flex justify-between items-end font-medium">
+                            <span class="text-gray-800 pr-2 text-lg">Beard</span>
+                            <span class="text-gray-900 pl-2 text-lg">$10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="relative z-10 py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <span class="text-beautifier-purple font-bold tracking-wider uppercase text-sm">Our Work</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-2">Portfolio</h2>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="flex items-center gap-2 text-beautifier-pink font-semibold hover:text-beautifier-purple transition-colors">
+                    <i class="fab fa-instagram text-xl"></i> Follow on Instagram
+                </a>
+            </div>
+
+            <!-- Gallery Grid (Placeholders ready for your images) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
+                    <img src="http://s1063125683.online-home.ca/client%20collage.jpg" alt="Client Collage" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Happy Clients</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
+                    <img src="http://s1063125683.online-home.ca/cut%20and%20blow.jpg" alt="Cut and Blowdry" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Cut & Blowdry</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
+                    <img src="http://s1063125683.online-home.ca/hair%20styling.jpg" alt="Hair Styling" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Styling</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm">
+                    <img src="http://s1063125683.online-home.ca/hair%20styling%202.jpg" alt="Hair Styling 2" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Elegant Styling</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm md:hidden lg:block">
+                    <img src="http://s1063125683.online-home.ca/hair%20styling%203.jpg" alt="Hair Styling 3" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Beautiful Finish</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm md:hidden lg:block">
+                    <img src="http://s1063125683.online-home.ca/kids%20cut.jpg" alt="Kids Cut" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Kids Cut</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-sm md:hidden lg:block">
+                    <img src="http://s1063125683.online-home.ca/limited%20mobility%20cut.jpg" alt="Limited Mobility Service" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-white font-medium">Accessible Care</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-500 mb-2">Want to see more of my work?</p>
+                <p class="text-sm italic text-gray-400">Provide image filenames and locations to update this gallery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="relative z-10 py-24 bg-beautifier-dark text-white">
+        <!-- Subtle dark background pattern/glow -->
+        <div class="absolute inset-0 bg-gradient-brand opacity-10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 relative z-10">
+            <!-- Contact Info -->
+            <div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Let's create something <span class="text-beautifier-pink italic">beautiful.</span></h2>
+                <p class="text-gray-300 text-lg mb-12 max-w-md">
+                    Ready for a change? Book your mobile styling session today. Feel free to reach out with any questions regarding accessibility setups or gift cards.
+                </p>
+
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/5">
+                            <i class="fas fa-phone-alt text-beautifier-pink text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Call or Text</h4>
+                            <a href="tel:5147737814" class="text-2xl font-semibold hover:text-beautifier-pink transition-colors">514-773-7814</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/5">
+                            <i class="fas fa-map-marker-alt text-beautifier-purple text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Service Area</h4>
+                            <p class="text-xl">Greater Montreal Area</p>
+                            <p class="text-sm text-gray-400 mt-1">Travel fee may apply based on distance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/5">
+                            <i class="fas fa-gift text-beautifier-pink text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Physical Gift Cards</h4>
+                            <p class="text-lg">Available for all services.</p>
+                            <p class="text-sm text-gray-400 mt-1">Ask about them in your message or during your appointment!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl text-gray-800 shadow-2xl relative">
+                <!-- Decorative accent -->
+                <div class="absolute top-0 right-10 w-20 h-2 bg-gradient-brand rounded-b-full"></div>
+                
+                <h3 class="text-2xl font-bold mb-6 text-gray-900">Request an Appointment</h3>
+                
+                <form id="bookingForm" class="space-y-5" onsubmit="event.preventDefault(); alert('In a real app, this would send your message!');">
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="space-y-1">
+                            <label class="text-sm font-semibold text-gray-700">First Name</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-semibold text-gray-700">Last Name</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">Phone Number</label>
+                        <input type="tel" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">Address / Postal Code (For distance check)</label>
+                        <input type="text" required class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all">
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">Service Needed</label>
+                        <select class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all appearance-none cursor-pointer">
+                            <option>Hair cut & Blowdry</option>
+                            <option>Color, Cut & Blowdry</option>
+                            <option>Men's Cut</option>
+                            <option>Permanent</option>
+                            <option>Inquire about Gift Card</option>
+                            <option>Other / Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">Message / Accessibility Needs</label>
+                        <textarea rows="4" class="w-full bg-gray-50 border border-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-beautifier-pink/50 focus:border-beautifier-pink transition-all resize-none placeholder-gray-400" placeholder="Let me know if you have specific limited mobility requirements so I can prepare the best setup for you."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-beautifier-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition-colors shadow-lg mt-2">
+                        Send Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a040d] text-gray-400 py-12 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            
+            <div>
+                <a href="#" class="inline-flex items-center gap-2 mb-4">
+                    <img src="http://s1063125683.online-home.ca/icon.png" alt="Beautifier Logo Icon" class="h-8 w-8 object-contain rounded-full">
+                    <span class="font-serif text-xl font-bold tracking-widest text-white uppercase">Beautifier</span>
+                </a>
+                <p class="text-sm text-gray-500 max-w-xs mx-auto md:mx-0">Montreal's premier mobile hairstylist, bringing the salon to your sanctuary.</p>
+            </div>
+
+            <div class="flex justify-center gap-6">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-beautifier-pink hover:text-white transition-all text-gray-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-beautifier-purple hover:text-white transition-all text-gray-300">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+
+            <div class="md:text-right text-sm">
+                <p>&copy; <span id="year"></span> Beautifier. All rights reserved.</p>
+                <p class="mt-1">Designed for Mobile Haircare.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
